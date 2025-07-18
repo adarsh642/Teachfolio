@@ -1,4 +1,4 @@
-/* ========== Root & Base Styles ========== */
+
 :root {
   --primary: #2c3e50;
   --secondary: #34495e;
@@ -29,7 +29,6 @@ body {
   overflow-x: hidden;
 }
 
-/* ========== Header/Nav ========== */
 header {
   background: var(--dark);
   box-shadow: 0 2px 30px rgba(0, 0, 0, 0.2);
@@ -103,7 +102,7 @@ nav {
   display: none;
 }
 
-/* ========== Hero Section ========== */
+
 .hero {
   background: linear-gradient(135deg, rgba(44, 62, 80, 0.9), rgba(30, 43, 56, 0.95));
   text-align: center;
@@ -155,7 +154,7 @@ nav {
   box-shadow: 0 8px 30px rgba(241, 196, 15, 0.4);
 }
 
-/* Hero animation delays */
+
 @keyframes slideIn {
   to {
     opacity: 1;
@@ -184,7 +183,6 @@ nav {
 .hero-heading span:nth-child(19) { animation-delay: 0.9s; }
 .hero-heading span:nth-child(20) { animation-delay: 0.95s; }
 
-/* ========== Section Base Styling ========== */
 .section {
   padding: 100px 60px;
   background-color: var(--secondary);
@@ -212,7 +210,6 @@ nav {
   left: 20px;
 }
 
-/* ========== About Section ========== */
 .about-content {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -256,7 +253,6 @@ blockquote {
   line-height: 2;
 }
 
-/* ========== Responsive Fixes ========== */
 @media (max-width: 992px) {
   .about-content {
     grid-template-columns: 1fr;
