@@ -13,7 +13,7 @@ document.querySelectorAll('.nav-links a').forEach(link => {
 });
 
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
+    anchor.addEventListener('click', function (e) {
         e.preventDefault();
         const targetId = this.getAttribute('href');
         const targetElement = document.querySelector(targetId);
@@ -26,19 +26,19 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-document.getElementById('contactForm').addEventListener('submit', function(e) {
+document.getElementById('contactForm').addEventListener('submit', function (e) {
     e.preventDefault();
-    
+
     const form = e.target;
     const responseDiv = document.getElementById('formResponse');
     const submitBtn = form.querySelector('button[type="submit"]');
-    
+
     submitBtn.disabled = true;
     submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-    
+
     fetch('https://formsubmit.co/ajax/adarshmaurya8383@gmail.com', {
         method: 'POST',
-        headers: { 
+        headers: {
             'Content-Type': 'application/json',
             'Accept': 'application/json'
         },
@@ -51,29 +51,28 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
             _template: 'table'
         })
     })
-    .then(response => {
-        if (!response.ok) throw new Error('Network response was not ok');
-        return response.json();
-    })
-    .then(data => {
-        responseDiv.style.display = 'block';
-        responseDiv.className = 'success';
-        responseDiv.innerHTML = '<p><i class="fas fa-check-circle"></i> Thank you! Your message has been sent successfully.</p>';
-        form.reset();
-    })
-    .catch(error => {
-        responseDiv.style.display = 'block';
-        responseDiv.className = 'error';
-        responseDiv.innerHTML = '<p><i class="fas fa-exclamation-circle"></i> Oops! Something went wrong. Please try again later or contact me directly at adarshmaurya8383@gmail.com</p>';
-        console.error('Error:', error);
-    })
-    .finally(() => {
-        submitBtn.disabled = false;
-        submitBtn.textContent = 'Send Message';
-        
-        // Hide message after 5 seconds
-        setTimeout(() => {
-            responseDiv.style.display = 'none';
-        }, 5000);
-    });
+        .then(response => {
+            if (!response.ok) throw new Error('Network response was not ok');
+            return response.json();
+        })
+        .then(data => {
+            responseDiv.style.display = 'block';
+            responseDiv.className = 'success';
+            responseDiv.innerHTML = '<p><i class="fas fa-check-circle"></i> Thank you! Your message has been sent successfully.</p>';
+            form.reset();
+        })
+        .catch(error => {
+            responseDiv.style.display = 'block';
+            responseDiv.className = 'error';
+            responseDiv.innerHTML = '<p><i class="fas fa-exclamation-circle"></i> Oops! Something went wrong. Please try again later or contact me directly at adarshmaurya8383@gmail.com</p>';
+            console.error('Error:', error);
+        })
+        .finally(() => {
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Send Message';
+
+            setTimeout(() => {
+                responseDiv.style.display = 'none';
+            }, 5000);
+        });
 });
